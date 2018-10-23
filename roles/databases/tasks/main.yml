@@ -1,0 +1,32 @@
+---
+- name: Ensure DATABASE is in MOTD 
+  lineinfile:
+    path: /etc/ansible/roles.txt
+    create: yes
+    line: 'ROLE: database'
+
+- name: Ensuring mariadb is installed
+  yum:
+    name: mariadb-server
+    state: installed
+  tags:
+    - install
+    - configuration
+
+- name: Stopping mariadb (if needed)
+  service:
+    name: mariadb
+    state: stopped
+  tags:
+    - stop_database
+    - never
+
+- name: Ensure mariadb is running
+  service:
+    name: mariadb
+    state: started
+  tags:
+    - install
+    - configuration
+    - start_database
+

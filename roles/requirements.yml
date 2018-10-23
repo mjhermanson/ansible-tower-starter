@@ -1,0 +1,7 @@
+# Add roles from ansible-galaxy to this file to install them into the environment
+
+# Example: This line lets me write playbooks (rhel_like-patching.yml in this repo) to assign this role to servers with access
+# to Red Hat Insight: https://galaxy.ansible.com/RedHatInsights/insights-client
+# This requires a valid entitlement from Red Hat
+
+- src: redhataccess.redhat-access-insights-client

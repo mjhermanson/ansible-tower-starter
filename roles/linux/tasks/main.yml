@@ -1,0 +1,46 @@
+---
+
+# This playbook contains common plays that will be run on all linux nodes.
+- debug:
+    msg: "System {{ inventory_hostname }} is getting the generic LINUX role from the {{ git_branch }} branch"
+
+- name: Install ntp
+  yum: name=ntp state=present
+  tags: ntp
+
+- name: Configure ntp file
+  template: src=ntp.conf.j2 dest=/etc/ntp.conf
+  tags: ntp
+  notify: restart ntp
+
+- name: Start the ntp service
+  service: name=ntpd state=started enabled=yes
+  tags: ntp
+
+- name: test to see if selinux is running
+  command: getenforce
+  register: sestatus
+  changed_when: false
+
+- user:
+    name: root
+    comment: "Root"
+    uid: 0
+    group: root
+    password: "{{ root_pw }}"
+
+- name: Configure SSH
+  template:
+    src: templates/sshd_config
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0600
+  notify:
+    - restart sshd
+
+- name: Generate MOTD/banner
+  import_tasks: motd.yml
+
+- name: Generate /etc/ansible/roles.txt
+  import_tasks: dynamic_roles.yml

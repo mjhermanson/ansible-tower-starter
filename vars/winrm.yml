@@ -1,0 +1,11 @@
+# it is suggested that these be encrypted with ansible-vault:
+# ansible-vault encrypt group_vars/windows.yml
+
+# Plays that connect to Windows servers should include this 
+# vars file so ansible uses the right credentials, ports, and protocol
+# to make a successfil winrm connection. There is an example in windows_patching.yml
+
+ansible_user: Ansible
+ansible_password: RedHat123
+ansible_port: 5986
+ansible_connection: winrm

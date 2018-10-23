@@ -1,0 +1,45 @@
+---
+# For this start project this file serves as a catalog of sorts. 
+# In this file will be a list of plays that this project is capable
+# of performing. Create a job template in Tower that uses this playbook
+# and specify the tag(s) of the play(s) you want to perform.
+
+# OOTB this play calls the 'common' role. The common role is located in the
+# roles directory of this project and includes a task to print a debug message. 
+# Add tasks to the tasks/ directory to run a task against all hosts in the inventory
+#
+- name: "Apply a role to all servers"
+  hosts: all
+  vars_files:
+    - vars/vault 
+  roles:
+    - common
+
+# If you have Windows servers in the inventory youd will need to configure the client 
+# with winrm, override ansible_connection(see winrm.yml) and add the credentials to 
+# the vault. For this project, edit vars/winrm.yml and ecrypt it with ansible-vault.
+# When running this play you will need to pass the vault password which can be stored 
+# in ansible tower's vault and saved in the job template definition.
+#- name: "Run a play for windows servers"
+#  hosts: all_windows
+#  vars_files:
+#    - vars/vault 
+#    - vars/winrm.yml
+#  roles:
+#    - common
+
+
+# Uncomment and change the play below to enable your automation
+# Use the tags when creating the job template in Tower
+#
+#- name: "My automated task #2"
+#  hosts: groupA
+#  vars_files:
+#    - vars/vault
+#  roles:
+#    - groupA_role 
+#  tasks:
+#    - name: "groupA task"
+#  tag:
+#    - groupA_tasks
+#

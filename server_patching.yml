@@ -1,0 +1,13 @@
+---
+name: RHEL-like Patching
+hosts: all-rhel-servers
+become: yes
+tasks:
+  - include_playbook rhel-like_patching.yml
+
+name: Windows Patching
+hosts: all-windows-servers
+become: yes
+tasks:
+  - include_playbook windows_patching.yml
+

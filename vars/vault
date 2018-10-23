@@ -1,0 +1,16 @@
+---
+#Enrypt this file with 'ansible-vault ecrypt vault'
+
+# Replace this with the hash from the password file. Used by the linux role to set global linux Root passwords
+root_pw: #qwerty1234poiu0987hashofrootpassword
+
+#Insert user for RHN - needed for subscription manager in rhel_like-patching.yml
+rhn_user: example@company.com 
+rhn_pass: redhat123 #Password for subscription manager
+rhn_pool_id: qwert1234poiu0987 #You may want to read in this variable from the group/host basis in tower
+
+#The red hat insights role uses these variable. Since they
+#are credentials, they need to be encrypted. This is probably the same
+#as above, but could be different if you need.
+redhat_portal_username: example@mycompany.com
+redhat_portal_password: redhat123
