@@ -1,10 +1,14 @@
 ---
+
+# This playbook demonstrates how to do privilege execution on a Windows 
+# Server. This is important if you want to manage things like a local
+# Adminstrator account which can't be done as the running user. 
+
 - name: Run command with RunAs
   gather_facts: "no"
   vars_files:
     - vars/windows_become.yml
   hosts:
-#    - "{{ windows_patch_hosts }}"
     - windows
   tasks:
     - name: Run whoami
