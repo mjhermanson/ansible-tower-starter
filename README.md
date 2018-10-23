@@ -7,7 +7,7 @@ This project is intended to be a starting point for those new to Tower. It is in
 * Skeleton vault files to be encrypted by the user using ansible-vault
 * TODO: create a bootstrap playbook to create the Project, Job Templates, Credentials, etc
 
-#Getting Started
+# Getting Started
 Until the bootstrap playbook is done you should be able to do the following. 
 * Fork this repo and add as a project. 
 * Create a Job Template that uses this site.yml, existing credentials, existing inventory,
