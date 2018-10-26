@@ -1,6 +1,6 @@
 # Overview
-This project is intended to be a starting point for those new to Tower. It is intended to demonstrate how it's components are part of a functional workflow for automation and managment using Ansible. This includes the following tasks
-* A basic directory structure for playbooks and the roles used by those playbooks
+This project is intended to be a starting point for those new to Tower or are simply looking for a new use case for tower. It is intended to demonstrate how it's components are part of a functional workflow for automation and managment using Ansible. This includes the following tasks
+* A basic directory structure for playbooks and the roles used by those playbooks. This is good starter project for the configuration managment use case where a periodic check and remediation of configuration drift is desired.
 * (commented) examples. Users are encouraged to dig into the files and read the comments to understand how things work
 * A site.yml that includes the equivelent of a hello_world. In this case printing out debug messages about the running job
 * Skeleton playbooks for patching RHEL and/or Windows Servers. 
