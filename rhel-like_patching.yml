@@ -7,7 +7,7 @@
   vars_files:
     - vars/vault
   roles:
-    # This role is from Ansible galaxy
+    # This role is from Ansible galaxy. to install this role it needs to be listed in roles/requirements.yml
     - { role: redhataccess.redhat-access-insights-client, when: ansible_distribution == "RedHat" }
   tasks:
     - block:
